@@ -6,8 +6,6 @@ description: "Kublete 远程命令执行漏洞"
 tag: 应用安全
 ---
 
-# Kublete 远程命令执行漏洞
-
 ------
 ## Kublete简介
 Kublete是Kubernetes的核心组件之一，每个节点上都运行一个kubelet服务进程，默认监听`10250端口`，接收并执行master发来的指令，管理Pod及Pod中的容器。每个kubelet进程会在API Server上注册节点自身信息，定期向master节点汇报节点的资源使用情况，并通过cAdvisor监控节点和容器的资源。
