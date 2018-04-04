@@ -10,8 +10,8 @@ sqlmap这款sql注入神器想必不用过多介绍，互联网安全从业者�
 ## 目录结构详解
 ```
 sqlmap
-|    README.md 说明文件
-|    .travis.yml 标记python版本及设置sqlmap的脚本
+|	README.md 说明文件
+|	.travis.yml 标记python版本及设置sqlmap的脚本
 |	sqlmap.conf 配置文件
 |	sqlmap.py 的主程序
 |	sqlmapapi.py api文件，可以将sqlmap集成到其他平台
