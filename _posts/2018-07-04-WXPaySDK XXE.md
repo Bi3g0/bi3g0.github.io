@@ -122,6 +122,7 @@ nodifyData实际是微信给接入方回调地址notify_url返回的xml数据。
 ### 漏洞复现
 简单修改SDK中示例代码的xmlStr为XXE Payload，查看可否实现XXE攻击。
 * TestWXPay.java
+
 ```java
     /**
      * 小测试
@@ -155,7 +156,7 @@ nodifyData实际是微信给接入方回调地址notify_url返回的xml数据。
 ## 修复建议
 `禁用外部实体解析`  
 目前微信支付Java SDK已经修复了代码，可以在[这里](https://drive.google.com/file/d/1cHtElmTLfDRov1poIAAD70jwa8NGh78P/view?usp=sharing)下载修复后代码。
-* WXPayUtil.java
+* WXPayUtil.java  
 ```java
  public static Map<String, String> xmlToMap(String strXML) throws Exception {
         try {
