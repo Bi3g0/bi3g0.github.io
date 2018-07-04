@@ -50,6 +50,7 @@ public static Map<String, String> xmlToMap(String strXML) throws Exception {
     }
 ```
 微信SDK的xmlToMap方法接受并处理XML数据，但是默认支持外部实体解析，所以只要可以控制strXML就能导致XXE漏洞。
+
 ### 微信SDK支付逻辑
 根据README可以看到，微信SDK的支付逻辑如下：
 1. 首先统一下单
@@ -117,6 +118,7 @@ public class WXPayExample {
 }
 ```
 nodifyData实际是微信给接入方回调地址notify_url返回的xml数据。接入方使用xmlToMap处理nodifydata。攻击者只需要知道nodify_url，就可以构造XXE Payload进行攻击。
+
 ### 漏洞复现
 简单修改SDK中示例代码的xmlStr为XXE Payload，查看可否实现XXE攻击。
 * TestWXPay.java
@@ -149,8 +151,9 @@ nodifyData实际是微信给接入方回调地址notify_url返回的xml数据。
 * 执行结果  
 ![](/images/posts/app_sec/WXPay_result1_2018-07-04_20-53-14.png)  
 已经成功读取hosts文件。证明只要接入方使用了此版本SDK并且攻击者知道回调地址，就可以成功实现XXE攻击。
+
 ## 修复建议
-禁用外部实体解析  
+`禁用外部实体解析`  
 目前微信支付Java SDK已经修复了代码，可以在[这里](https://drive.google.com/file/d/1cHtElmTLfDRov1poIAAD70jwa8NGh78P/view?usp=sharing)下载修复后代码。
 * WXPayUtil.java
 ```java
