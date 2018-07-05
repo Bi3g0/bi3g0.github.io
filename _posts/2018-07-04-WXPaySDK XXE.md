@@ -55,6 +55,7 @@ public static Map<String, String> xmlToMap(String strXML) throws Exception {
 ### 微信SDK支付逻辑
 根据README可以看到，微信SDK的支付逻辑如下：
 1. 首先统一下单
+
 ```java
 import com.github.wxpay.sdk.WXPay;
 import java.util.HashMap;
