@@ -49,6 +49,7 @@ public static Map<String, String> xmlToMap(String strXML) throws Exception {
 
     }
 ```
+
 微信SDK的xmlToMap方法接受并处理XML数据，但是默认支持外部实体解析，所以只要可以控制strXML就能导致XXE漏洞。
 
 ### 微信SDK支付逻辑
@@ -87,6 +88,7 @@ public class WXPayExample {
 
 }
 ```
+
 其中notify_url是接入方自己构建的web接口，用于异步接收微信支付结果通知的回调地址。
 2. 处理微信回调
 ```java
