@@ -92,6 +92,7 @@ public class WXPayExample {
 
 其中notify_url是接入方自己构建的web接口，用于异步接收微信支付结果通知的回调地址。
 2. 处理微信回调
+
 ```java
 import com.github.wxpay.sdk.WXPay;
 import com.github.wxpay.sdk.WXPayUtil;
@@ -120,6 +121,7 @@ public class WXPayExample {
 
 }
 ```
+
 nodifyData实际是微信给接入方回调地址notify_url返回的xml数据。接入方使用xmlToMap处理nodifydata。攻击者只需要知道nodify_url，就可以构造XXE Payload进行攻击。
 
 ### 漏洞复现
@@ -152,6 +154,7 @@ nodifyData实际是微信给接入方回调地址notify_url返回的xml数据。
 
     }
 ```
+
 * 执行结果  
 ![](/images/posts/app_sec/WXPay_result1_2018-07-04_20-53-14.png)  
 已经成功读取hosts文件。证明只要接入方使用了此版本SDK并且攻击者知道回调地址，就可以成功实现XXE攻击。
